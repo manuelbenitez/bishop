@@ -17,10 +17,12 @@ import {
 import { wildBlueYonder } from "../../ui/typography/common/colors";
 import styles from "./dev.module.scss";
 import { FaBeer } from "react-icons/fa";
+import Navbar from "../../ui/navbar";
 const Dev = () => {
   const [value, setValue] = useState<string>("");
   return (
     <div className={styles["row"]}>
+      <Navbar />
       <div className={styles["column"]}>
         <Button
           label={"Primary"}
