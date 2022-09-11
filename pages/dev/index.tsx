@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../../ui/button";
+import { Icon } from "../../ui/icon";
 import Input from "../../ui/input";
 import {
   BodyFive,
@@ -15,6 +16,7 @@ import {
 } from "../../ui/typography/common";
 import { wildBlueYonder } from "../../ui/typography/common/colors";
 import styles from "./dev.module.scss";
+import { FaBeer } from "react-icons/fa";
 const Dev = () => {
   const [value, setValue] = useState<string>("");
   return (
@@ -52,6 +54,7 @@ const Dev = () => {
         <BodyFour color={wildBlueYonder} label={"Body Four"} />
         <BodyFive color={wildBlueYonder} label={"BodyFive"} />
       </div>
+      <Icon icon={<FaBeer style={{ color: wildBlueYonder }} />} />
     </div>
   );
 };
