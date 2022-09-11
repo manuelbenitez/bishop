@@ -1,0 +1,19 @@
+@import "../../styles/colors.scss";
+.button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: $davysGray;
+  cursor: pointer;
+  &.__primary {
+    background-color: $aliceBlue;
+  }
+  &.__secondary {
+    background-color: $wildBlueYonder;
+  }
+  &.__disabled {
+    background-color: $manatee;
+    cursor: not-allowed;
+    color: $white;
+  }
+}
