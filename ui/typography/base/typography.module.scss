@@ -1,0 +1,22 @@
+span {
+  &.roboto {
+    font-family: Roboto;
+  }
+  &.poppins {
+    font-family: Poppins;
+  }
+  &.italic {
+    font-style: italic;
+  }
+  &.primary {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  &.hover {
+    &:hover {
+      font-weight: 700 !important;
+    }
+    transition: 0.25s;
+  }
+}

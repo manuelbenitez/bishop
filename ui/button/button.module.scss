@@ -4,7 +4,16 @@
   border-radius: 5px;
   padding: 10px;
   color: $davysGray;
+  box-shadow: $--shadow;
   cursor: pointer;
+  transition: all 0.5s;
+  &:hover {
+    color: $manatee;
+  }
+  &:active {
+    box-shadow: inset;
+    transform: translateY(2px);
+  }
   &.__primary {
     background-color: $aliceBlue;
   }
@@ -15,5 +24,6 @@
     background-color: $manatee;
     cursor: not-allowed;
     color: $white;
+    transform: translateY(0px);
   }
 }
