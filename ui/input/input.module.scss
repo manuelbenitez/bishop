@@ -15,7 +15,6 @@
     position: absolute;
     top: -15px;
     left: 5px;
-
   }
   &__input {
     border-radius: 5px;
@@ -27,6 +26,9 @@
     color: $outerSpaceCrayola;
     :focus {
       outline: none;
+    }
+    &::placeholder {
+      color: $manatee;
     }
   }
 }

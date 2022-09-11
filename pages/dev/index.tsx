@@ -13,13 +13,13 @@ import {
   HeaderThree,
   HeaderTwo,
 } from "../../ui/typography/common";
-import { aliceBlue, wildBlueYonder } from "../../ui/typography/common/colors";
+import { wildBlueYonder } from "../../ui/typography/common/colors";
 import styles from "./dev.module.scss";
 const Dev = () => {
   const [value, setValue] = useState<string>("");
   return (
-    <div style={{ display: "flex", gap: "20px", padding: "20px" }}>
-      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+    <div className={styles["row"]}>
+      <div className={styles["column"]}>
         <Button
           label={"Primary"}
           onClick={() => console.log("clicked")}
@@ -40,7 +40,7 @@ const Dev = () => {
           placeholder={"Enter your value here"}
         />
       </div>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div className={styles["column"]}>
         <HeaderOne color={wildBlueYonder} label={"Header One"} />
         <HeaderTwo color={wildBlueYonder} label={"Header Two"} />
         <HeaderThree color={wildBlueYonder} label={"Header Three"} />
