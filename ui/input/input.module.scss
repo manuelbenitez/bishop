@@ -2,6 +2,7 @@
 
 .container {
   background: $--gradient;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,6 +11,12 @@
   -webkit-box-shadow: $--shadow;
   -moz-box-shadow: $--shadow;
   box-shadow: $--shadow;
+  &__label {
+    position: absolute;
+    top: -15px;
+    left: 5px;
+
+  }
   &__input {
     border-radius: 5px;
     width: 100%;

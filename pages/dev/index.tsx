@@ -34,7 +34,7 @@ const Dev = () => {
       </div>
       <div>
         <Input
-          label={"Sign In"}
+          label={"Sign in"}
           value={value}
           onChange={setValue}
           placeholder={"Enter your value here"}
