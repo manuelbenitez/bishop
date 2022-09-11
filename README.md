@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Description
+
+This repository is aimed to be a template to be used as a web application using Typescript, Easy-Peasy as state manager and Nest.js
+Features: Home page, user authentication, user panel, marketplace.
 ## Getting Started
 
 First, run the development server:
