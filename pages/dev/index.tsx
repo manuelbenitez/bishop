@@ -18,6 +18,7 @@ import { wildBlueYonder } from "../../ui/typography/common/colors";
 import styles from "./dev.module.scss";
 import { FaBeer } from "react-icons/fa";
 import Navbar from "../../ui/navbar";
+import Places from "../../ui/google-maps/maps-container";
 const Dev = () => {
   const [value, setValue] = useState<string>("");
   return (
@@ -57,6 +58,9 @@ const Dev = () => {
         <BodyFive color={wildBlueYonder} label={"BodyFive"} />
       </div>
       <Icon icon={<FaBeer style={{ color: wildBlueYonder }} />} />
+      <div style={{display: 'flex', flexDirection: "column", marginTop: '10px'}}>
+        <Places />
+      </div>
     </div>
   );
 };

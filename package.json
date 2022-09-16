@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nestjs/cli": "^9.1.2",
+    "@reach/combobox": "^0.17.0",
+    "@react-google-maps/api": "^2.12.2",
     "easy-peasy": "^5.0.4",
     "next": "12.2.5",
+    "prettier": "^2.7.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
-    "sass": "^1.54.9"
+    "sass": "^1.54.9",
+    "use-places-autocomplete": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "18.7.14",
