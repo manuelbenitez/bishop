@@ -12,6 +12,7 @@
     "@nestjs/cli": "^9.1.2",
     "@reach/combobox": "^0.17.0",
     "@react-google-maps/api": "^2.12.2",
+    "dayjs": "^1.11.5",
     "easy-peasy": "^5.0.4",
     "next": "12.2.5",
     "prettier": "^2.7.1",

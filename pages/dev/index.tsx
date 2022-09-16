@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Button from "../../ui/button";
 import { Icon } from "../../ui/icon";
 import Input from "../../ui/input";
@@ -19,8 +19,11 @@ import styles from "./dev.module.scss";
 import { FaBeer } from "react-icons/fa";
 import Navbar from "../../ui/navbar";
 import Places from "../../ui/google-maps/maps-container";
+import { CalendarWidget } from "../../ui/calendar-widget";
+import { labels } from "./labels";
 const Dev = () => {
   const [value, setValue] = useState<string>("");
+
   return (
     <div className={styles["row"]}>
       <Navbar />
@@ -58,8 +61,19 @@ const Dev = () => {
         <BodyFive color={wildBlueYonder} label={"BodyFive"} />
       </div>
       <Icon icon={<FaBeer style={{ color: wildBlueYonder }} />} />
-      <div style={{display: 'flex', flexDirection: "column", marginTop: '10px'}}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          marginTop: "10px",
+          width: "300px",
+          height: "700px",
+        }}
+      >
         <Places />
+      </div>
+      <div style={{ width: "350px", height: "700px" }}>
+        <CalendarWidget labels={labels} />
       </div>
     </div>
   );

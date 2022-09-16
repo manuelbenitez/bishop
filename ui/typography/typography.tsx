@@ -3,7 +3,7 @@ import { componentMap, colorMap, BodyOne } from "./common/common";
 export const Typography = ({
   label,
   type = "b1",
-  color = "normal",
+  color = "black",
   primary,
   ...props
 }: ITypographyProps) => {

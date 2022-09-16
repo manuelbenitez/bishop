@@ -27,7 +27,8 @@ export type Colors =
   | "manatee"
   | "davysGray"
   | "outerSpaceCrayola"
-  | "white";
+  | "white"
+  | "black";
 
 export interface ITypographyProps extends HTMLAttributes<HTMLDivElement> {
   label: string;
