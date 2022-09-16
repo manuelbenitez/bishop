@@ -15,10 +15,8 @@ import styles from "./maps-container.module.scss";
 import Button from "../button";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { GOOGLE_API_KEY } from "./api-key.constant";
-import { Actions, useStoreActions } from "easy-peasy";
-// import { IStoreModel } from "store/model/model.types";
 import { BiPencil } from "react-icons/bi";
-import { IPlacesProps } from "./places.types";
+import { IPlacesAutocompleteProps, IPlacesProps } from "./places.types";
 import { SubTextOne } from "../typography/common";
 import Input from "../input";
 import { Icon } from "../icon";
@@ -34,9 +32,11 @@ function Map({ labels }: IPlacesProps) {
   const [center, setCenter] = useState<
     google.maps.LatLng | google.maps.LatLngLiteral
   >({ lat: 0, lng: 0 });
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState<
+    google.maps.LatLng | google.maps.LatLngLiteral
+  >({ lat: 0, lng: 0 });
   const [inputAddress, setInputAddress] = useState<string>("");
-  const [results, setResults] = useState<any>(undefined);
+  const [results, setResults] = useState<google.maps.GeocoderResult[]>();
   const [addressOne, setAddressOne] = useState<string>("");
   const [addressTwo, setAddressTwo] = useState<string>("");
   const [city, setCity] = useState<string>("");
@@ -46,30 +46,10 @@ function Map({ labels }: IPlacesProps) {
   const [edit, setEdit] = useState(false);
   const [customAddress, setCustomAddress] = useState(false);
   const [error, setError] = useState(null);
-  // const actions = useStoreActions(
-  //   (action: Actions<IStoreModel>) => action.events
-  // );
-
-  // function handleSaveLocation() {
-  //   if (inputAddress) {
-  //     actions.setLocationName(inputAddress.split(",")[0]);
-  //     actions.setGeolocation({
-  //       addressOne: addressOne,
-  //       addressTwo: addressTwo,
-  //       city: city,
-  //       state: state,
-  //       country: country,
-  //       postcode: postcode,
-  //       lat: center?.lat,
-  //       lng: center?.lng,
-  //     });
-  //   } else {
-  //     setError(labels.error);
-  //   }
-  // }
   useEffect(() => {
     if (results) {
       const { address_components } = results[0];
+      console.log(results);
       if (address_components) {
         address_components.forEach((component) => {
           switch (component.types[0]) {
@@ -101,11 +81,10 @@ function Map({ labels }: IPlacesProps) {
     setCustomAddress(true);
   }
 
-  function handleSelected(lat, lng) {
+  function handleSelected(lat: number, lng: number) {
     setSelected({ lat, lng });
     setCustomAddress(false);
   }
-  console.log(center);
   return (
     <>
       <div>
@@ -136,7 +115,7 @@ function Map({ labels }: IPlacesProps) {
             <div className={styles["map-container__edit-address"]}>
               <Input
                 placeholder={inputAddress}
-                label={labels.venueName}
+                label={"Venue Name"}
                 value={inputAddress}
                 onChange={() => console.log("input address")}
               />
@@ -153,20 +132,20 @@ function Map({ labels }: IPlacesProps) {
                 >
                   <Input
                     value={addressOne}
-                    label={labels.addressOne}
-                    onChange={(e) => setAddressOne(e.currentTarget.value)}
+                    label={"Address One"}
+                    onChange={setAddressOne}
                     placeholder={"Address One"}
                   />
                   <Input
                     value={city}
-                    label={labels.city}
-                    onChange={(e) => setCity(e.currentTarget.value)}
+                    label={"City"}
+                    onChange={setCity}
                     placeholder={"City"}
                   />
                   <Input
                     value={postcode}
-                    label={labels.po}
-                    onChange={(e) => setPostcode(e.currentTarget.value)}
+                    label={"Post Code"}
+                    onChange={setPostcode}
                     placeholder={"Postcode"}
                   />
                 </div>
@@ -177,20 +156,20 @@ function Map({ labels }: IPlacesProps) {
                 >
                   <Input
                     value={addressTwo}
-                    label={labels.addressTwo}
-                    onChange={(e) => setAddressTwo(e.currentTarget.value)}
+                    label={"Address two"}
+                    onChange={setAddressTwo}
                     placeholder={"Adress Two"}
                   />
                   <Input
                     value={state}
-                    label={labels.state}
-                    onChange={(e) => setState(e.currentTarget.value)}
-                    placeholder={"STate"}
+                    label={"State"}
+                    onChange={setState}
+                    placeholder={"State"}
                   />
                   <Input
                     value={country}
-                    label={labels.country}
-                    onChange={(e) => setCountry(e.currentTarget.value)}
+                    label={"Country"}
+                    onChange={setCountry}
                     placeholder={"Country"}
                   />
                 </div>
@@ -208,17 +187,15 @@ function Map({ labels }: IPlacesProps) {
                 value={""}
                 onChange={() => console.log("venue name")}
               />
-              {/* <IconButton
+              <Icon
                 onClick={() => setEdit(true)}
-                icon={{
-                  icon: (
-                    <BiPencil color={cadetGrey} style={{ padding: "0px" }} />
-                  ),
-                }}
+                icon={
+                  <BiPencil color={wildBlueYonder} style={{ padding: "0px" }} />
+                }
                 className={
                   styles["map-container__input-container__edit-input__button"]
                 }
-              /> */}
+              />
             </div>
           )}
         </div>
@@ -234,7 +211,7 @@ const PlacesAutoComplete = ({
   setResults,
   handleEdit,
   customAddress,
-}) => {
+}: IPlacesAutocompleteProps) => {
   const {
     ready,
     value,
@@ -242,18 +219,15 @@ const PlacesAutoComplete = ({
     suggestions: { status, data },
     clearSuggestions,
   } = usePlacesAutocomplete();
-  // const actions = useStoreActions(
-  //   (action: Actions<IStoreModel>) => action.events
-  // );
+
   const handleSelect = async (address: string) => {
     setValue(address, false);
     clearSuggestions();
     const results = await getGeocode({ address });
     const { lat, lng } = await getLatLng(results[0]);
-    setSelected({ lat, lng });
+    setSelected(lat, lng);
     setCenter({ lat, lng });
     setInputAddress(address);
-    // actions.setLocationName(address.split(",")[0]);
     setResults(results);
   };
 
@@ -263,25 +237,6 @@ const PlacesAutoComplete = ({
   }
   return (
     <Combobox onSelect={handleSelect} className={styles["combo-box-container"]}>
-      {/* <div className={styles["combo-box-container__icon"]}>
-        <TooltipInfo>
-          <SubTextOne
-            className={styles["combo-box-container__tooltip-content"]}
-            color={cadetGrey}
-            label={
-              "1 - Start typing and select your Address or Add a custom one"
-            }
-          />
-          <SubTextOne
-            color={cadetGrey}
-            label={
-              "2 - If the address is not the correct one, click on the pencil icon on Venue Name to edit"
-            }
-          />
-          <SubTextOne color={cadetGrey} label={"3 - Type New Address"} />
-          <SubTextOne color={cadetGrey} label={"4 - Click on Save Location"} />
-        </TooltipInfo>
-      </div> */}
       <ComboboxInput
         value={value}
         onChange={(e) => setValue(e.target.value)}

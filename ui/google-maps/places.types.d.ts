@@ -14,3 +14,12 @@ export interface IPlacesLabels {
   customAddress: string;
   error: string;
 }
+
+export interface IPlacesAutocompleteProps {
+  setSelected: (lat: number, lng: number) => void;
+  setCenter: ({ lat: number, lng: number }) => void;
+  setInputAddress: (address: string) => void;
+  setResults: (results: results) => void;
+  handleEdit: () => void;
+  customAddress: string;
+}
