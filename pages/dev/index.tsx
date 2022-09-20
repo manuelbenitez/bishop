@@ -76,7 +76,7 @@ const Dev = () => {
       <div style={{ width: "350px", height: "700px" }}>
         <CalendarWidget labels={labels} />
       </div>
-      <div style={{ width: "350px", height: "500px" }}>
+      <div style={{ width: "250px", height: "450px" }}>
         <ProductCard
           image={""}
           name={"Soda"}

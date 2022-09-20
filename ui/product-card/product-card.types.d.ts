@@ -1,5 +1,5 @@
 export interface IProductCardProps {
-  image: string;
+  image: StaticImageData;
   name: string;
   description: string;
   price: number;
