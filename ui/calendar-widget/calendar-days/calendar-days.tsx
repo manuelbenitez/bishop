@@ -14,7 +14,7 @@ import {
 import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 import { BodyOne } from "../../typography/common";
-import { black } from "../../typography/common/colors";
+import { black, manatee } from "../../typography/common/colors";
 
 dayjs.extend(isBetween);
 const CalendarDays = ({
@@ -35,7 +35,7 @@ const CalendarDays = ({
           handleDates(dayOfCurrentMonth.date);
         }}
       >
-        <BodyOne color={black} label={String(dayOfCurrentMonth.dayOfMonth)} />
+        <BodyOne color={manatee} label={String(dayOfCurrentMonth.dayOfMonth)} />
       </div>
     );
   };

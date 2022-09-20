@@ -1,4 +1,5 @@
 // @import '../../../common/styles/mixins.scss';
+@import '../../../styles/colors.scss';
 
 .calendar-widget {
   background-color: #F4F6F9;
@@ -16,30 +17,38 @@
   line-height: 16px;
   letter-spacing: 2%;
   margin-bottom: 10px;
+  box-shadow: $--shadow;
+
   &__controls {
     display: flex;
     justify-content: space-between;
   }
+
   &__controls-content {
     display: flex;
     align-items: center;
     gap: 15px;
   }
+
   &__controls-text {
     width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+
   }
+
   &__controls-arrow {
     color: #90a0b7;
     font-size: 2rem;
     cursor: pointer;
+
     &:hover {
       color: #1dacd7;
     }
   }
+
   &__buttons {
     display: flex;
     justify-content: space-between;

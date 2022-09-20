@@ -12,9 +12,9 @@ import {
   createDaysOfCurrentMonth,
   pushNewDatesToArray,
 } from "../calendar-days/utils";
-import { ICalendarDaysProps } from "../types/types";
 import isBetween from "dayjs/plugin/isBetween";
 import { BodyFour } from "../../typography/common";
+import { manatee } from "../../typography/common/colors";
 dayjs.extend(isBetween);
 
 export const CalendarWidget = ({ labels }: ICalendarWidgetProps) => {
@@ -106,8 +106,8 @@ export const CalendarWidget = ({ labels }: ICalendarWidgetProps) => {
       <div className={styles["calendar-widget__controls"]}>
         <div className={styles["calendar-widget__controls-content"]}>
           <div className={styles["calendar-widget__controls-text"]}>
-            <BodyFour label={labels.months[currentMonth - 1]} color={"black"} />
-            <BodyFour label={String(currentYear)} color={"black"} />
+            <BodyFour label={labels.months[currentMonth - 1]} color={manatee} />
+            <BodyFour label={String(currentYear)} color={manatee} />
           </div>
         </div>
 

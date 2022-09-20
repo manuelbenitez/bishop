@@ -1,3 +1,5 @@
+@import '../../../styles/colors.scss';
+
 .calendar-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -6,9 +8,9 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    color: #4c5862;
+
     &__selected {
-        background-color: #cae9ff;
+        background-color: $aliceBlue;
         width: 140%;
         height: 60%;
         display: flex;
@@ -17,6 +19,7 @@
         position: relative;
         font-weight: 500;
     }
+
     &__not-selected {
         width: 100%;
         height: 100%;
@@ -24,9 +27,10 @@
         justify-content: center;
         align-items: center;
     }
+
     &__selected-first {
-        background: linear-gradient(315deg, #a498e4 -0.12%, #1dacd7 99.88%);
-        color: white;
+        background: $wildBlueYonder;
+        border-radius: 50%;
         width: 100%;
         height: 70%;
         display: flex;
@@ -34,20 +38,16 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        border-radius: 50%;
-        font-weight: 700;
     }
+
     &__selected-last {
-        background: linear-gradient(315deg, #a498e4 -0.12%, #1dacd7 99.88%);
-        color: white;
+        background: $wildBlueYonder;
         width: 100%;
         height: 70%;
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
-        z-index: 1;
         border-radius: 50%;
-        font-weight: 700;
     }
 }
