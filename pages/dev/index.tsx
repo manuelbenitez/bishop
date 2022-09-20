@@ -21,6 +21,7 @@ import Navbar from "../../ui/navbar";
 import Places from "../../ui/google-maps/maps-container";
 import { CalendarWidget } from "../../ui/calendar-widget";
 import { labels } from "./labels";
+import ProductCard from "../../ui/product-card";
 const Dev = () => {
   const [value, setValue] = useState<string>("");
 
@@ -74,6 +75,14 @@ const Dev = () => {
       </div>
       <div style={{ width: "350px", height: "700px" }}>
         <CalendarWidget labels={labels} />
+      </div>
+      <div style={{ width: "350px", height: "500px" }}>
+        <ProductCard
+          image={""}
+          name={"Soda"}
+          description={"La soda mas rica del mundo mundial"}
+          price={2}
+        />
       </div>
     </div>
   );
