@@ -5,6 +5,9 @@ export interface IMarketplaceModel {
   cart: IProductsModel[];
   products: IProductsModel[];
   totalPrice: number;
+
+  addToCart: Action<IMarketplaceModel, IProductsModel>;
+  setTotalPrice: Action<IMarketplaceModel, IProductsModel>;
   setImage: Action<IProductsModel, StaticImageData>;
   setName: Action<IProductsModel, string>;
   setDescription: Action<IProductsModel, string>;

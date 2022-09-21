@@ -1,4 +1,4 @@
-import { action } from "easy-peasy";
+import { action, thunk } from "easy-peasy";
 import { IMarketplaceModel } from "./marketplace.types";
 import soda from "./soda.jpg";
 export const MarketplaceModel: IMarketplaceModel = {
@@ -42,5 +42,11 @@ export const MarketplaceModel: IMarketplaceModel = {
   }),
   setQuantity: action((state, payload) => {
     state.quantity = payload;
+  }),
+  addToCart: action((state, product) => {
+    state.cart.push(product);
+  }),
+  setTotalPrice: action((state, product) => {
+    state.totalPrice += product.price;
   }),
 };
