@@ -9,15 +9,15 @@ const Singin = ({ isSignedIn }: ISigninProps) => {
   const [password, setPassword] = useState<string>("");
   return (
     <div className={styles["container"]}>
-      <BodyFive color={wildBlueYonder} label={"Singin"} />
+      <BodyFive color={wildBlueYonder} label={"Sign in"} />
       <Input
-        label={"email"}
+        label={"Email"}
         value={email}
         onChange={setEmail}
         placeholder={"Enter your email"}
       />
       <Input
-        label={"password"}
+        label={"Password"}
         value={password}
         onChange={setPassword}
         placeholder={"Enter your password"}

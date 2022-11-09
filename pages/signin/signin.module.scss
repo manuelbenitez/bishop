@@ -1,0 +1,13 @@
+@import '../../styles/colors.scss';
+
+.container {
+  margin: 25%;
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid $aliceBlue;
+  box-shadow: $--shadow;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
