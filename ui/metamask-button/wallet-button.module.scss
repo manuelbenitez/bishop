@@ -1,0 +1,21 @@
+@import "../../styles/colors.scss";
+
+.connect-wallet-button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: $davysGray;
+  background-color: $walletButtonColor;
+  box-shadow: $--shadow;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  &:hover {
+    color: $manatee;
+  }
+
+  &:active {
+    box-shadow: inset;
+    transform: translateY(2px);
+  }
+}

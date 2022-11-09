@@ -22,6 +22,7 @@ import Places from "../../ui/google-maps/maps-container";
 import { CalendarWidget } from "../../ui/calendar-widget";
 import { labels } from "./labels";
 import ProductCard from "../../ui/product-card";
+import ConnectWalletButton from "../../ui/metamask-button";
 const Dev = () => {
   const [value, setValue] = useState<string>("");
 
@@ -83,6 +84,9 @@ const Dev = () => {
           description={"La soda mas rica del mundo mundial"}
           price={2}
         />
+      </div>
+      <div>
+        <ConnectWalletButton />
       </div>
     </div>
   );
