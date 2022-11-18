@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { IConnectWalletButton } from "./wallet-button.types";
 import styles from "./wallet-button.module.scss";
 import { ethers } from "ethers";
-import { setGlobalProvider } from "@metamask/providers";
 import { Result } from "ethers/lib/utils";
 import { HeaderOne } from "../typography/common";
 import { davysGray } from "../typography/common/colors";
@@ -34,6 +33,36 @@ function ConnectWalletButton({}: IConnectWalletButton) {
       });
     }
   }, [defaultAccount]);
+
+  const accountChangeHandler = (newAccount: any) => {
+    console.log(newAccount);
+    setDefaultAccount(newAccount);
+    getAccountBalance(newAccount.toString());
+  };
+
+  const getAccountBalance = (account: any) => {
+    console.log(account);
+    window.ethereum
+      .request({
+        method: "eth_getBalance",
+        params: [account, "latest"],
+      })
+      .then((balance: string) =>
+        setUserBalance(ethers.utils.formatEther(balance))
+      )
+      .catch((error: Error) => {
+        setErrorMessage(error.message);
+      });
+  };
+
+  const chainChangeHandler = () => {
+    window.location.reload();
+  };
+
+  if (typeof window !== "undefined") {
+    window.ethereum.on("accountsChanged", accountChangeHandler);
+    window.ethereum.on("chainChanged", chainChangeHandler);
+  }
 
   return (
     <>
